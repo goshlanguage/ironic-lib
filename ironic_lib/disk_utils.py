@@ -425,7 +425,7 @@ def make_partitions(dev, root_mb, swap_mb, ephemeral_mb,
         LOG.debug("Add config drive partition (%(size)d MB) to device: "
                   "%(dev)s for node %(node)s",
                   {'dev': dev, 'size': configdrive_mb, 'node': node_uuid})
-        part_num = dp.add_partition(configdrive_mb)
+        part_num = dp.add_partition(configdrive_mb,fs_type="fat16")
         part_dict['configdrive'] = partition_index_to_path(dev, part_num)
 
     # NOTE(lucasagomes): Make the root partition the last partition. This
